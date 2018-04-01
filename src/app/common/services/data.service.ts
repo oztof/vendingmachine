@@ -4,13 +4,12 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 @Injectable()
 export class DataService {
 
-  private statusSource = new BehaviorSubject<string>("");
+  private statusSource = new BehaviorSubject<any>({title: "", imageUrl: ""});
   currentStatus = this.statusSource.asObservable();
 
   constructor() { }
 
-  changeStatus(newStatus: string) {
-    console.log("DataService.changeStatus: " + newStatus);
+  changeStatus(newStatus: any) {
     this.statusSource.next(newStatus);
   }
 

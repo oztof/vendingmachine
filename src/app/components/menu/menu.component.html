@@ -1,9 +1,9 @@
-<p>
-  menu works! {{status}}
-</p>
-<div>
-  <button type="button" class="btn btn-primary" (click)="insertCoinHandle()">Mettre une piéce</button>
-  <button type="button" class="btn btn-primary" (click)="ejectCoinHandle()">Ejecter la pièce</button>
-  <button type="button" class="btn btn-primary" (click)="turnButtonHandle()">Tourner la poignée</button>
-  <button type="button" class="btn btn-primary" (click)="pickupItemHandle()">Prendre le produit</button>
+<div id="marquee">
+	<div id="text">1. insérer une pièce - 2. appuyer sur le bouton 'Go' - 3. prener votre marchandise. </div>
+</div>
+<div id="menu">
+  <button type="button" class="btn btn-primary" (click)="insertCoinHandle()">Mettre une piéce <img src="../../../assets/one-euro.png" /></button>
+  <button type="button" class="btn btn-primary" (click)="turnButtonHandle()">Appuyer sur le bouton <img src="../../../assets/go.png" /></button>
+  <button type="button" class="btn btn-primary" (click)="pickupItemHandle()">Prendre votre produit <img src="../../../assets/pick.png" /></button>
+  <button type="button" class="btn btn-primary" (click)="ejectCoinHandle()">Ejecter la pièce <img src="../../../assets/eject.png" /></button>
 </div>

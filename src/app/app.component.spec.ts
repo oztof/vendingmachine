@@ -1,11 +1,16 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { MaindisplayComponent } from './components/maindisplay/maindisplay.component';
+import { DataService } from './common/services/data.service';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent, MenuComponent, MaindisplayComponent
       ],
+      providers: [ DataService ]
     }).compileComponents();
   }));
   it('should create the app', async(() => {

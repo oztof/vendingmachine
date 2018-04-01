@@ -58,4 +58,8 @@ export class Distributor
     getCurrentStateTitle() : string {
         return this.stateCurrent.getTitle();
     }
+
+    getCurrentStateImageUrl() : string {
+        return this.stateCurrent.getImageUrl();
+    }
 }

@@ -38,8 +38,9 @@ export class MenuComponent implements OnInit {
   }
 
   updateCurrentState() : void {
-    this.status =  this.distributor.getCurrentStateTitle();
-    this.dataService.changeStatus(this.status);
+    let currentStateTitle =  this.distributor.getCurrentStateTitle();
+    let currentStateImageUrl = this.distributor.getCurrentStateImageUrl();
+    this.dataService.changeStatus({title: currentStateTitle, imageUrl: currentStateImageUrl});
   }
 
   ngOnInit() {

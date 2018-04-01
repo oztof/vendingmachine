@@ -1,0 +1,10 @@
+#main-image {
+    background-color: #efefef; 
+    padding:10px;
+    align-content: center;
+    text-align: center;
+}
+
+#main-image img {
+    height:500px;
+}

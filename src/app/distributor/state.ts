@@ -7,6 +7,7 @@ export interface State
     turnButton():void;
     pickupItem():void;
     getTitle() : string;
+    getImageUrl() : string;
 }
 
 export class StateNoCoin implements State
@@ -39,6 +40,11 @@ export class StateNoCoin implements State
     getTitle()
     {
         return "State No Coin";
+    }
+
+    getImageUrl()
+    {
+        return '/assets/insert-coin-to-continue.png';
     }
 }
 
@@ -74,12 +80,19 @@ export class StateCoin implements State
     {
         return "State Coin";
     }
+
+    getImageUrl()
+    {
+        return '/assets/green-button.png';
+    }
 }
 
 export class StateSold implements State
 {
+    private currentImage : string;
     constructor(private distributor : Distributor)
     {
+        this.currentImage = this.getNextImage();
     }
 
     insertCoin()
@@ -101,10 +114,32 @@ export class StateSold implements State
     {
         console.log('sold: pickup item');
         this.distributor.setState(this.distributor.getStateNoCoin());
+        this.currentImage = this.getNextImage();
     }
 
     getTitle()
     {
         return "State Sold";
+    }
+
+    getNextImage() : string 
+    {
+        let random = Math.round(Math.random() * 2);
+        switch(random)
+        {
+            case 0:
+                return '/assets/heroes/cap-america.jpg';
+            case 1:
+                return '/assets/heroes/hulk.jpg';
+            case 2:
+                return '/assets/heroes/ironman.jpg';
+            default:
+            return '/assets/heroes/ironman.jpg';
+        }
+    }
+
+    getImageUrl()
+    {
+        return this.currentImage;
     }
 }
