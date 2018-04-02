@@ -3,12 +3,10 @@ import { DataService } from '../../common/services/data.service';
 
 @Component({
   selector: 'app-maindisplay',
-  //providers: [ DataService ],  
   templateUrl: './maindisplay.component.html',
   styleUrls: ['./maindisplay.component.css']
 })
 export class MaindisplayComponent implements OnInit {
-  displayText = "i am the main display";
   status = "";
   imageUrl = "";
   
@@ -16,6 +14,7 @@ export class MaindisplayComponent implements OnInit {
   }
 
   ngOnInit() {
+    // when there is a change we need to update the title and imageUrl
     this.dataService.currentStatus.subscribe(newStatus => {
       this.status = newStatus.title;
       this.imageUrl = newStatus.imageUrl;

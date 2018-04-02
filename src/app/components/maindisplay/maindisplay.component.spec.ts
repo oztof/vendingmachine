@@ -10,7 +10,6 @@ describe('MaindisplayComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ MaindisplayComponent ],
-      //imports: [ DataService ],
       providers: [ DataService ]
     })
     .compileComponents();

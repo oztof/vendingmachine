@@ -16,6 +16,7 @@ export class StateNoCoin implements State
     {
     }
     
+    // a coin is inserted, change the state to State 'Coin'
     insertCoin()
     {
         console.log("no coin: Insert Coin");
@@ -59,12 +60,14 @@ export class StateCoin implements State
         console.log("coin: you cannot add more coin");
     }
 
+    // the user want the coin to be ejected. change state to State 'no coin' 
     ejectCoin()
     {
         console.log("coin: eject coin");
         this.distributor.setState(this.distributor.getStateNoCoin());
     }
 
+    // the user validates the purchase so we go to State 'Sold' 
     turnButton()
     {
         console.log("coin: you turned the button");
@@ -110,10 +113,12 @@ export class StateSold implements State
         console.log("sold: you turned the button");
     }
 
+    // the user picked up his purchase. So back to the state 'no coin'
     pickupItem()
     {
         console.log('sold: pickup item');
         this.distributor.setState(this.distributor.getStateNoCoin());
+        // we get the next item for next time
         this.currentImage = this.getNextImage();
     }
 
@@ -122,6 +127,7 @@ export class StateSold implements State
         return "State Sold";
     }
 
+    // get a random image for next time
     getNextImage() : string 
     {
         let random = Math.round(Math.random() * 2);
@@ -134,7 +140,7 @@ export class StateSold implements State
             case 2:
                 return '/assets/heroes/ironman.jpg';
             default:
-            return '/assets/heroes/ironman.jpg';
+                return '/assets/heroes/ironman.jpg';
         }
     }
 

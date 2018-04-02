@@ -12,7 +12,6 @@ describe('MenuComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ MenuComponent ],
       providers: [ DataService ]
-      //providers: [{ dataService: DataService, useValue: new DataService() }]
     })
     .compileComponents();
   }));

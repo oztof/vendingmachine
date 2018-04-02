@@ -1,16 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Distributor } from '../../distributor/distributor';
 import { DataService } from '../../common/services/data.service';
 import { DataStatus } from '../../common/services/datastatus';
 
 @Component({
   selector: 'app-menu',
-  //providers: [ DataService ],
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
-export class MenuComponent implements OnInit {
-  status:string = 'Menu works';
+export class MenuComponent {
   distributor : Distributor;
 
   constructor(private dataService : DataService) { 
@@ -38,13 +36,10 @@ export class MenuComponent implements OnInit {
     this.updateCurrentState();
   }
 
+  // a button was pressed so we trigger a status change
   updateCurrentState() : void {
     let currentStateTitle =  this.distributor.getCurrentStateTitle();
     let currentStateImageUrl = this.distributor.getCurrentStateImageUrl();
     this.dataService.changeStatus(new DataStatus(currentStateTitle, currentStateImageUrl));
   }
-
-  ngOnInit() {
-  }
-
 }
