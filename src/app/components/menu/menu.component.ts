@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Distributor } from '../../distributor/distributor';
 import { DataService } from '../../common/services/data.service';
+import { DataStatus } from '../../common/services/datastatus';
 
 @Component({
   selector: 'app-menu',
@@ -40,7 +41,7 @@ export class MenuComponent implements OnInit {
   updateCurrentState() : void {
     let currentStateTitle =  this.distributor.getCurrentStateTitle();
     let currentStateImageUrl = this.distributor.getCurrentStateImageUrl();
-    this.dataService.changeStatus({title: currentStateTitle, imageUrl: currentStateImageUrl});
+    this.dataService.changeStatus(new DataStatus(currentStateTitle, currentStateImageUrl));
   }
 
   ngOnInit() {
